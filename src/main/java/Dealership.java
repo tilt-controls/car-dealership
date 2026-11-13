@@ -16,7 +16,16 @@ public class Dealership {
     }
 
     public List<Vehicle> getVehiclesByPrice(BigDecimal min, BigDecimal max) {
-        return null;
+        List<Vehicle> matchedVehicles = new ArrayList<>();
+        for (Vehicle vehicle : getAllVehicles()) {
+            if (vehicle.getPrice().compareTo(min) >= 0 && vehicle.getPrice().compareTo(max) <= 0) {
+                matchedVehicles.add(vehicle);
+            }
+        }
+        if (matchedVehicles.isEmpty()) {
+            System.out.println("No matching vehicles found.");
+        }
+        return matchedVehicles;
     }
 
     public List<Vehicle> getVehiclesByMakeModel(String make, String model) {

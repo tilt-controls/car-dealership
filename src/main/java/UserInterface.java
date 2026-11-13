@@ -1,5 +1,6 @@
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -14,7 +15,7 @@ public class UserInterface {
         DealershipFileManager fileManager = new DealershipFileManager();
         this.dealership = fileManager.getDealership();
     }
-    private void displayVehicles(ArrayList<Vehicle> inventory) {
+    private void displayVehicles(List<Vehicle> inventory) {
         for (Vehicle vehicle : inventory) {
             System.out.println("\n------------------------------");
             System.out.println(vehicle.getYear() + " " + vehicle.getMake() + " " + vehicle.getModel());
@@ -72,7 +73,11 @@ public class UserInterface {
     }
 
     public void processGetByPriceRequest() {
-
+        BigDecimal min = promptForBigDecimal("Please enter minimum price for a vehicle: ");
+        BigDecimal max = promptForBigDecimal("Please enter maximum price for a vehicle: ");
+        List<Vehicle> matchedVehicles = dealership.getVehiclesByPrice(min, max);
+        displayVehicles(matchedVehicles);
+        pressEnterToContinue();
         }
 
     public void processGetByMakeModelRequest() {
@@ -104,6 +109,8 @@ public class UserInterface {
         int odometer = promptForInt("Enter odometer: ");
         BigDecimal price = promptForBigDecimal("Enter price: ");
         Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
+        System.out.println("Adding " + vehicle.getYear() + " " + vehicle.getMake() + " " + vehicle.getModel() + "!");
+        pressEnterToContinue();
         dealership.addVehicle(vehicle);
         fileManager.saveDealership(dealership);
     }
@@ -113,6 +120,8 @@ public class UserInterface {
         for (Vehicle vehicle : dealership.getAllVehicles()) {
             if (vehicle.getVin() == vin) {
                 dealership.removeVehicle(vehicle);
+                System.out.println("Vehicle has been removed!");
+                pressEnterToContinue();
                 break;
             }
         }
