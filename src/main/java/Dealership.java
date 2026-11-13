@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.*;
 import java.math.*;
 
@@ -73,6 +74,16 @@ public class Dealership {
             }
         }
         return matchedVehicles;
+    }
+
+    public ArrayList<Vehicle> getVehiclesByCustomFilter(String make, BigDecimal max, String color) {
+        ArrayList<Vehicle> matchedVehicles = new ArrayList<>();
+        for (Vehicle vehicle : getAllVehicles()) {
+            if ((make == null || make.equalsIgnoreCase(vehicle.getMake())) && (color == null || color.equalsIgnoreCase(vehicle.getColor())) && (max == null ||
+                    vehicle.getPrice().compareTo(max) <= 0)) {
+                matchedVehicles.add(vehicle);
+            }
+        } return matchedVehicles;
     }
 
     public ArrayList<Vehicle> getAllVehicles() {

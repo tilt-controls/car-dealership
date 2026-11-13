@@ -1,6 +1,7 @@
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.math.*;
 
 public class UserInterface {
     private Dealership dealership;
@@ -45,6 +46,7 @@ public class UserInterface {
             System.out.println("O) Search by Mileage");
             System.out.println("T) Search by Vehicle Type");
             System.out.println("A) Display All Vehicles");
+            System.out.println("S) Custom Search");
             System.out.println("N) Add a Vehicle");
             System.out.println("R) Remove a Vehicle");
             System.out.println("X) Exit");
@@ -66,6 +68,8 @@ public class UserInterface {
 
                 case "A" -> processGetAllVehiclesRequest();
 
+                case "S" -> processGetByCustomFilter();
+
                 case "N" -> processAddVehicleRequest();
 
                 case "R" -> processRemoveVehicleRequest();
@@ -75,6 +79,34 @@ public class UserInterface {
                 default -> System.out.println("Unknown Command! Try again.");
             }
         } while(!command.equals("X"));
+    }
+
+    public void processGetByCustomFilter() {
+        System.out.println("You may enter field or leave blank for all questions!");
+        System.out.println("Enter make: ");
+        String make = scanner.nextLine().trim();
+        if (make.isEmpty()) {
+            make = null;
+        }
+
+        BigDecimal max = null;
+        System.out.println("Enter maximum price: ");
+        String maxInput = scanner.nextLine().trim();
+        if (maxInput.isEmpty()) {
+            maxInput=null;
+        } else {
+            max = new BigDecimal(maxInput);
+            max = max.setScale(2, RoundingMode.HALF_UP);
+        }
+
+        System.out.println("Enter color: ");
+        String color = scanner.nextLine().trim();
+        if (color.isEmpty()) {
+            color = null;
+        }
+        ArrayList<Vehicle> matchedVehicles = dealership.getVehiclesByCustomFilter(make, max, color);
+        displayVehicles(matchedVehicles);
+        pressEnterToContinue();
     }
 
     public void processGetByPriceRequest() {

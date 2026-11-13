@@ -16,12 +16,12 @@ class DealershipTest {
         BigDecimal max = new BigDecimal("2000");
 
         // act
-        ArrayList<Vehicle> matchedVehicles = dealership.getVehiclesByPrice(min,max);
+        ArrayList<Vehicle> matchedVehicles = dealership.getVehiclesByPrice(min, max);
 
         // assert
         assertFalse(matchedVehicles.isEmpty());
         for (Vehicle vehicle : matchedVehicles) {
-            assertTrue(vehicle.getPrice().compareTo(min)>=0 && vehicle.getPrice().compareTo(max)<=0);
+            assertTrue(vehicle.getPrice().compareTo(min) >= 0 && vehicle.getPrice().compareTo(max) <= 0);
         }
     }
 
@@ -32,7 +32,7 @@ class DealershipTest {
         String model = "Civic";
 
         // act
-        ArrayList<Vehicle>  matchedVehicles = dealership.getVehiclesByMakeModel(make,model);
+        ArrayList<Vehicle> matchedVehicles = dealership.getVehiclesByMakeModel(make, model);
 
         // assert
         assertFalse(matchedVehicles.isEmpty());
@@ -47,7 +47,7 @@ class DealershipTest {
         int max = 2011;
 
         // act
-        ArrayList<Vehicle> matchedVehicles = dealership.getVehiclesByYear(min,max);
+        ArrayList<Vehicle> matchedVehicles = dealership.getVehiclesByYear(min, max);
 
         // assert
         assertFalse(matchedVehicles.isEmpty());
@@ -55,6 +55,7 @@ class DealershipTest {
             assertTrue(vehicle.getYear() >= min && vehicle.getYear() <= max);
         }
     }
+
     @Test
     public void getVehiclesByColor_should_findVehiclesByColor() {
         // arrange
@@ -69,6 +70,7 @@ class DealershipTest {
             assertTrue(vehicle.getColor().equals(color));
         }
     }
+
     @Test
     public void getVehiclesByMileage_should_findVehiclesWithinMileageRange() {
         // arrange
@@ -76,7 +78,7 @@ class DealershipTest {
         int max = 70000;
 
         // act
-        ArrayList<Vehicle> matchedVehicles = dealership.getVehiclesByMileage(min,max);
+        ArrayList<Vehicle> matchedVehicles = dealership.getVehiclesByMileage(min, max);
 
         // assert
         assertFalse(matchedVehicles.isEmpty());
@@ -84,6 +86,7 @@ class DealershipTest {
             assertTrue(vehicle.getOdometer() >= min && vehicle.getOdometer() <= max);
         }
     }
+
     @Test
     public void getVehiclesByCarType_should_findVehiclesByCarType() {
         // arrange
