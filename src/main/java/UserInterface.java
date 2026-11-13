@@ -89,6 +89,11 @@ public class UserInterface {
     }
 
     public void processGetByYearRequest() {
+        int min = promptForInt("Please enter minimum year for a vehicle: ");
+        int max = promptForInt("Please enter maximum year for a vehicle: ");
+        List<Vehicle> matchedVehicles = dealership.getVehiclesByYear(min, max);
+        displayVehicles(matchedVehicles);
+        pressEnterToContinue();
     }
 
     public void processGetByColorRequest() {
