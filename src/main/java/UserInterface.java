@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class UserInterface {
     private Dealership dealership;
     static Scanner scanner = new Scanner(System.in);
+    private DealershipFileManager fileManager = new DealershipFileManager();
 
     public UserInterface() {
     }
@@ -104,9 +105,18 @@ public class UserInterface {
         BigDecimal price = promptForBigDecimal("Enter price: ");
         Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
         dealership.addVehicle(vehicle);
+        fileManager.saveDealership(dealership);
     }
 
     public void processRemoveVehicleRequest() {
+        int vin = promptForInt("Enter VIN to remove vehicle: ");
+        for (Vehicle vehicle : dealership.getAllVehicles()) {
+            if (vehicle.getVin() == vin) {
+                dealership.removeVehicle(vehicle);
+                break;
+            }
+        }
+        fileManager.saveDealership(dealership);
     }
 
     public static void pressEnterToContinue() {
