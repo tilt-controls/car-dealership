@@ -16,7 +16,7 @@ public class UserInterface {
         this.dealership = fileManager.getDealership();
     }
 
-    private void displayVehicles(List<Vehicle> inventory) {
+    private void displayVehicles(ArrayList<Vehicle> inventory) {
         for (Vehicle vehicle : inventory) {
             System.out.println("\n------------------------------");
             System.out.println(vehicle.getYear() + " " + vehicle.getMake() + " " + vehicle.getModel());
@@ -76,7 +76,7 @@ public class UserInterface {
     public void processGetByPriceRequest() {
         BigDecimal min = promptForBigDecimal("Please enter minimum price for a vehicle: ");
         BigDecimal max = promptForBigDecimal("Please enter maximum price for a vehicle: ");
-        List<Vehicle> matchedVehicles = dealership.getVehiclesByPrice(min, max);
+        ArrayList<Vehicle> matchedVehicles = dealership.getVehiclesByPrice(min, max);
         displayVehicles(matchedVehicles);
         pressEnterToContinue();
         }
@@ -84,7 +84,7 @@ public class UserInterface {
     public void processGetByMakeModelRequest() {
         String make = promptForString("Enter vehicle make: ");
         String model = promptForString("Enter vehicle model: ");
-        List<Vehicle> matchedVehicles = dealership.getVehiclesByMakeModel(make, model);
+        ArrayList<Vehicle> matchedVehicles = dealership.getVehiclesByMakeModel(make, model);
         displayVehicles(matchedVehicles);
         pressEnterToContinue();
     }
@@ -92,14 +92,14 @@ public class UserInterface {
     public void processGetByYearRequest() {
         int min = promptForInt("Please enter minimum year for a vehicle: ");
         int max = promptForInt("Please enter maximum year for a vehicle: ");
-        List<Vehicle> matchedVehicles = dealership.getVehiclesByYear(min, max);
+        ArrayList<Vehicle> matchedVehicles = dealership.getVehiclesByYear(min, max);
         displayVehicles(matchedVehicles);
         pressEnterToContinue();
     }
 
     public void processGetByColorRequest() {
         String color = promptForString("Enter vehicle color: ");
-        List<Vehicle> matchedVehicles = dealership.getVehiclesByColor(color);
+        ArrayList<Vehicle> matchedVehicles = dealership.getVehiclesByColor(color);
         displayVehicles(matchedVehicles);
         pressEnterToContinue();
     }
@@ -107,14 +107,14 @@ public class UserInterface {
     public void processGetByMileageRequest() {
         int min = promptForInt("Please enter minimum mileage for a vehicle: ");
         int max = promptForInt("Please enter maximum mileage for a vehicle: ");
-        List<Vehicle> matchedVehicles = dealership.getVehiclesByMileage(min, max);
+        ArrayList<Vehicle> matchedVehicles = dealership.getVehiclesByMileage(min, max);
         displayVehicles(matchedVehicles);
         pressEnterToContinue();
     }
 
     public void processGetByVehicleTypeRequest() {
         String vehicleType = promptForString("Vehicle Type: ");
-        List<Vehicle> matchedVehicles = dealership.getVehiclesByType(vehicleType);
+        ArrayList<Vehicle> matchedVehicles = dealership.getVehiclesByType(vehicleType);
         displayVehicles(matchedVehicles);
         pressEnterToContinue();
     }

@@ -15,8 +15,8 @@ public class Dealership {
         this.phone = phone;
     }
 
-    public List<Vehicle> getVehiclesByPrice(BigDecimal min, BigDecimal max) {
-        List<Vehicle> matchedVehicles = new ArrayList<>();
+    public ArrayList<Vehicle> getVehiclesByPrice(BigDecimal min, BigDecimal max) {
+        ArrayList<Vehicle> matchedVehicles = new ArrayList<>();
         for (Vehicle vehicle : getAllVehicles()) {
             if (vehicle.getPrice().compareTo(min) >= 0 && vehicle.getPrice().compareTo(max) <= 0) {
                 matchedVehicles.add(vehicle);
@@ -28,8 +28,8 @@ public class Dealership {
         return matchedVehicles;
     }
 
-    public List<Vehicle> getVehiclesByMakeModel(String make, String model) {
-        List<Vehicle> matchedVehicles = new ArrayList<>();
+    public ArrayList<Vehicle> getVehiclesByMakeModel(String make, String model) {
+        ArrayList<Vehicle> matchedVehicles = new ArrayList<>();
         for (Vehicle vehicle : getAllVehicles()) {
             if (vehicle.getMake().equalsIgnoreCase(make) && vehicle.getModel().equalsIgnoreCase(model)) {
                 matchedVehicles.add(vehicle);
@@ -41,8 +41,8 @@ public class Dealership {
         return matchedVehicles;
     }
 
-    public List <Vehicle> getVehiclesByYear(int min, int max) {
-        List<Vehicle> matchedVehicles = new ArrayList<>();
+    public ArrayList<Vehicle> getVehiclesByYear(int min, int max) {
+        ArrayList<Vehicle> matchedVehicles = new ArrayList<>();
         for (Vehicle vehicle : getAllVehicles()) {
             if (vehicle.getYear() > min && vehicle.getYear() <= max) {
                 matchedVehicles.add(vehicle);
@@ -54,8 +54,8 @@ public class Dealership {
         return matchedVehicles;
     }
 
-    public List <Vehicle> getVehiclesByColor(String color) {
-        List<Vehicle> matchedVehicles = new ArrayList<>();
+    public ArrayList<Vehicle> getVehiclesByColor(String color) {
+        ArrayList<Vehicle> matchedVehicles = new ArrayList<>();
         for (Vehicle vehicle : getAllVehicles()) {
             if (vehicle.getColor().equalsIgnoreCase(color)) {
                 matchedVehicles.add(vehicle);
@@ -67,8 +67,8 @@ public class Dealership {
         return matchedVehicles;
     }
 
-    public List <Vehicle> getVehiclesByMileage(int min, int max) {
-        List<Vehicle> matchedVehicles = new ArrayList<>();
+    public ArrayList<Vehicle> getVehiclesByMileage(int min, int max) {
+        ArrayList<Vehicle> matchedVehicles = new ArrayList<>();
         for (Vehicle vehicle : getAllVehicles()) {
             if (vehicle.getOdometer() >= min && vehicle.getOdometer() <= max ) {
                 matchedVehicles.add(vehicle);
@@ -80,8 +80,8 @@ public class Dealership {
         return matchedVehicles;
     }
 
-    public List <Vehicle> getVehiclesByType(String vehicleType) {
-        List<Vehicle> matchedVehicles = new ArrayList<>();
+    public ArrayList<Vehicle> getVehiclesByType(String vehicleType) {
+        ArrayList<Vehicle> matchedVehicles = new ArrayList<>();
         for (Vehicle vehicle : getAllVehicles()) {
             if (vehicle.getVehicleType().equalsIgnoreCase(vehicleType)) {
                 matchedVehicles.add(vehicle);
