@@ -104,6 +104,11 @@ public class UserInterface {
     }
 
     public void processGetByMileageRequest() {
+        int min = promptForInt("Please enter minimum mileage for a vehicle: ");
+        int max = promptForInt("Please enter maximum mileage for a vehicle: ");
+        List<Vehicle> matchedVehicles = dealership.getVehiclesByMileage(min, max);
+        displayVehicles(matchedVehicles);
+        pressEnterToContinue();
     }
 
     public void processGetByVehicleTypeRequest() {
