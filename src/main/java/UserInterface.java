@@ -25,6 +25,11 @@ public class UserInterface {
             System.out.println("VIN: " + vehicle.getVin());
             System.out.println("------------------------------");
         }
+        if (inventory.size() > 0) {
+            System.out.println("Cars found: " + inventory.size() + "!");
+        } else {
+            System.out.println("No cars found!");
+        }
     }
 
     public void display() {

@@ -22,9 +22,6 @@ public class Dealership {
                 matchedVehicles.add(vehicle);
             }
         }
-        if (matchedVehicles.isEmpty()) {
-            System.out.println("No matching vehicles found.");
-        }
         return matchedVehicles;
     }
 
@@ -34,9 +31,6 @@ public class Dealership {
             if (vehicle.getMake().equalsIgnoreCase(make) && vehicle.getModel().equalsIgnoreCase(model)) {
                 matchedVehicles.add(vehicle);
             }
-        }
-        if (matchedVehicles.isEmpty()) {
-            System.out.println("No matching vehicles found.");
         }
         return matchedVehicles;
     }
@@ -48,9 +42,6 @@ public class Dealership {
                 matchedVehicles.add(vehicle);
             }
         }
-        if (matchedVehicles.isEmpty()) {
-            System.out.println("No matching vehicles found.");
-        }
         return matchedVehicles;
     }
 
@@ -61,21 +52,15 @@ public class Dealership {
                 matchedVehicles.add(vehicle);
             }
         }
-        if (matchedVehicles.isEmpty()) {
-            System.out.println("No matching vehicles found.");
-        }
         return matchedVehicles;
     }
 
     public ArrayList<Vehicle> getVehiclesByMileage(int min, int max) {
         ArrayList<Vehicle> matchedVehicles = new ArrayList<>();
         for (Vehicle vehicle : getAllVehicles()) {
-            if (vehicle.getOdometer() >= min && vehicle.getOdometer() <= max ) {
+            if (vehicle.getOdometer() >= min && vehicle.getOdometer() <= max) {
                 matchedVehicles.add(vehicle);
             }
-        }
-        if (matchedVehicles.isEmpty()) {
-            System.out.println("No matching vehicles found.");
         }
         return matchedVehicles;
     }
@@ -87,13 +72,10 @@ public class Dealership {
                 matchedVehicles.add(vehicle);
             }
         }
-        if (matchedVehicles.isEmpty()) {
-            System.out.println("No matching vehicles found.");
-        }
         return matchedVehicles;
     }
 
-    public ArrayList <Vehicle> getAllVehicles() {
+    public ArrayList<Vehicle> getAllVehicles() {
         return inventory;
     }
 
