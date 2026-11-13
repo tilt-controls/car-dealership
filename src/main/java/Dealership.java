@@ -55,7 +55,16 @@ public class Dealership {
     }
 
     public List <Vehicle> getVehiclesByColor(String color) {
-        return null;
+        List<Vehicle> matchedVehicles = new ArrayList<>();
+        for (Vehicle vehicle : getAllVehicles()) {
+            if (vehicle.getColor().equalsIgnoreCase(color)) {
+                matchedVehicles.add(vehicle);
+            }
+        }
+        if (matchedVehicles.isEmpty()) {
+            System.out.println("No matching vehicles found.");
+        }
+        return matchedVehicles;
     }
 
     public List <Vehicle> getVehiclesByMileage(int min, int max) {
