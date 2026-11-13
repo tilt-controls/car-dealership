@@ -19,9 +19,9 @@ public class UserInterface {
         for (Vehicle vehicle : inventory) {
             System.out.println("\n------------------------------");
             System.out.println(vehicle.getYear() + " " + vehicle.getMake() + " " + vehicle.getModel());
-            System.out.println("Price: $" + vehicle.getPrice());
+            System.out.printf("Price: $%,.2f\n", vehicle.getPrice());
             System.out.println("Color: " + vehicle.getColor());
-            System.out.println("Mileage: " + vehicle.getOdometer());
+            System.out.printf("Mileage: %,d\n", vehicle.getOdometer());
             System.out.println("VIN: " + vehicle.getVin());
             System.out.println("------------------------------");
         }
