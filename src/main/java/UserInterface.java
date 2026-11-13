@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -70,6 +71,7 @@ public class UserInterface {
     }
 
     public void processGetByPriceRequest() {
+
         }
 
     public void processGetByMakeModelRequest() {
@@ -92,8 +94,57 @@ public class UserInterface {
     }
 
     public void processAddVehicleRequest() {
+        int vin = promptForInt("Enter VIN: ");
+        int year = promptForInt("Enter year: ");
+        String make = promptForString("Enter make: ");
+        String model = promptForString("Enter model: ");
+        String vehicleType = promptForString("Enter vehicle type: ");
+        String color = promptForString("Enter color: ");
+        int odometer = promptForInt("Enter odometer: ");
+        BigDecimal price = promptForBigDecimal("Enter price: ");
+        Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
+        dealership.addVehicle(vehicle);
     }
 
     public void processRemoveVehicleRequest() {
+    }
+
+    public static void pressEnterToContinue() {
+        System.out.println();
+        System.out.print("Press Enter to go back to the menu...");
+        scanner.nextLine();
+    }
+    public static BigDecimal promptForBigDecimal(String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            try {
+                return new BigDecimal(scanner.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a number.");
+            }
+        }
+    }
+    public static int promptForInt(String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            try {
+                return Integer.parseInt(scanner.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a number.");
+            }
+        }
+    }
+    public static String promptForString(String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            String input = scanner.nextLine().trim();
+            if (input.isEmpty()) {
+                System.out.println("This can't be blank.");
+            } else if (input.contains("|")) {
+                System.out.println("Please don't use the | character.");
+            } else {
+                return input;
+            }
+        }
     }
     }
