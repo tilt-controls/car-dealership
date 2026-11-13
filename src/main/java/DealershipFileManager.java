@@ -44,4 +44,5 @@ public class DealershipFileManager {
                 System.out.println("Error! Inventory could not be saved.");
             }
             }
-        }
+
+}
