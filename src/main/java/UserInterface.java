@@ -112,6 +112,10 @@ public class UserInterface {
     }
 
     public void processGetByVehicleTypeRequest() {
+        String vehicleType = promptForString("Vehicle Type: ");
+        List<Vehicle> matchedVehicles = dealership.getVehiclesByType(vehicleType);
+        displayVehicles(matchedVehicles);
+        pressEnterToContinue();
     }
 
     public void processGetAllVehiclesRequest() {
