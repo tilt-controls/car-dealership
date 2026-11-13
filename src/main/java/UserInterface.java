@@ -81,6 +81,11 @@ public class UserInterface {
         }
 
     public void processGetByMakeModelRequest() {
+        String make = promptForString("Enter vehicle make: ");
+        String model = promptForString("Enter vehicle model: ");
+        List<Vehicle> matchedVehicles = dealership.getVehiclesByMakeModel(make, model);
+        displayVehicles(matchedVehicles);
+        pressEnterToContinue();
     }
 
     public void processGetByYearRequest() {
