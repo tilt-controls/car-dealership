@@ -15,6 +15,7 @@ public class UserInterface {
         DealershipFileManager fileManager = new DealershipFileManager();
         this.dealership = fileManager.getDealership();
     }
+
     private void displayVehicles(List<Vehicle> inventory) {
         for (Vehicle vehicle : inventory) {
             System.out.println("\n------------------------------");

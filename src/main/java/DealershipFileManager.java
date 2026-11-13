@@ -32,17 +32,18 @@ public class DealershipFileManager {
             }
             return dealership;
         }
-        public void saveDealership(Dealership dealership) {
-            try {
-                BufferedWriter writer = new BufferedWriter(new FileWriter("inventory.csv"));
-                writer.write(dealership.getName() + "|" + dealership.getAddress() + "|" + dealership.getPhone() + "\n");
-                for (Vehicle vehicle : dealership.getAllVehicles()) {
-                writer.write(vehicle.getVin() + "|" + vehicle.getYear() + "|" + vehicle.getMake() + "|" + vehicle.getModel() + "|" + vehicle.getVehicleType()
-                + "|" + vehicle.getColor() + "|" + vehicle.getOdometer() + "|" + vehicle.getPrice() + "\n"); }
-                writer.close();
-            } catch (IOException e) {
-                System.out.println("Error! Inventory could not be saved.");
-            }
-            }
 
+    public void saveDealership(Dealership dealership) {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("inventory.csv"));
+            writer.write(dealership.getName() + "|" + dealership.getAddress() + "|" + dealership.getPhone() + "\n");
+            for (Vehicle vehicle : dealership.getAllVehicles()) {
+                writer.write(vehicle.getVin() + "|" + vehicle.getYear() + "|" + vehicle.getMake() + "|" + vehicle.getModel() + "|" + vehicle.getVehicleType()
+                        + "|" + vehicle.getColor() + "|" + vehicle.getOdometer() + "|" + vehicle.getPrice() + "\n");
+            }
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("Error! Inventory could not be saved.");
+        }
+    }
 }
